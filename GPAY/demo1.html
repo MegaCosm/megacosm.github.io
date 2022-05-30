@@ -86,6 +86,23 @@ function createPaymentRequest() {
     supportedMethods: 'https://google.com/pay',
     data: getGooglePaymentsConfiguration()
   }];
+  let formValue = {};
+  formValue['pa'] = "merchant3@icici";
+  formValue['pn'] = "test merchant";
+  formValue['tn'] = "test note";
+  formValue['mc'] = 1234;
+  formValue['tr'] = "test reference id";
+  formValue['tid'] = "";
+  formValue['url'] = "https://teztytreats.com/demo";
+  
+  methodData.push({
+      supportedMethods: ['https://pwp-server.appspot.com/pay-dev'],
+      data: formValue,
+    });
+   methodData.push({
+      supportedMethods: ['https://tez.google.com/pay'],
+      data: formValue,
+    });
   // Add other supported payment methods.
   methodData.push({
     supportedMethods: 'basic-card',
@@ -96,12 +113,12 @@ function createPaymentRequest() {
   });
 
   const details = {
-    total: {label: 'Test Purchase', amount: {currency: 'USD', value: '1.00'}}
+    total: {label: 'Test Purchase', amount: {currency: 'INR', value: '1.00'}}
   };
 
   const options = {
-    requestPayerEmail: true,
-    requestPayerName: true
+    requestPayerEmail: false,
+    requestPayerName: false
   };
 
   return new PaymentRequest(methodData, details, options);

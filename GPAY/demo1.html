@@ -53,8 +53,8 @@ function getGooglePaymentsConfiguration() {
     apiVersionMinor: 0,
     merchantInfo: {
       // A merchant ID is available after approval by Google.
-      // 'merchantId':'12345678901234567890',
-      merchantName: 'Example Merchant'
+      'merchantId':'BCR2DN4TQDX67LS3',
+      merchantName: 'Megacosm'
     },
     allowedPaymentMethods: [{
       type: 'CARD',
@@ -93,7 +93,7 @@ function createPaymentRequest() {
   formValue['mc'] = 1234;
   formValue['tr'] = "test reference id";
   formValue['tid'] = "";
-  formValue['url'] = "https://teztytreats.com/demo";
+  formValue['url'] = "https://megacosm.github.io/GPAY/";
   
   methodData.push({
       supportedMethods: ['https://pwp-server.appspot.com/pay-dev'],
